@@ -1,0 +1,8 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "cute_math",
+    visibility = ["//visibility:public"],
+    hdrs = ["cute_math.h"],
+    srcs = ["cute_math.cc"],
+)

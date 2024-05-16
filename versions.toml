@@ -1,0 +1,7 @@
+[cute_c2]
+version = "1.10"
+commit = "7a6299dedddb5b076f3530315c2a3f3745e4760f"
+
+[cute_math]
+version = "1.02"
+commit = "445d8cb94d5f662ab7932b36be4194780b33940e"
