@@ -31,11 +31,16 @@ def update_versions_readme_table [] {
   let begin_versions_table_str = '<!-- BEGIN VERSIONS TABLE -->';
   let end_versions_table_str = '<!-- END VERSIONS TABLE -->';
 
+  let table_header = [
+    '| module | version | commit |',
+    '| ------ | ------- | ------ |',
+  ];
+
   let readme_contents_before = $readme_contents | split list $begin_versions_table_str | get 0 | append $begin_versions_table_str;
   let readme_contents_after = $readme_contents | split list $end_versions_table_str | get 1 | prepend $end_versions_table_str;
   let version_table_rows = $versions | columns | each {|col| module_readme_table_line $col ($versions | get $col) };
 
-  ($readme_contents_before ++ $version_table_rows ++ $readme_contents_after) | save $readme_file_path -f --raw;
+  ($readme_contents_before ++ $table_header ++ $version_table_rows ++ $readme_contents_after) | save $readme_file_path -f --raw;
 }
 
 $versions | columns | each {|col| setup_module $col ($versions | get $col) }
